@@ -1,0 +1,42 @@
+datasource db {
+    provider = "mysql"
+    url      = env("DB_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model File {
+    id String @id @unique @default(cuid())
+
+    createdAt DateTime @default(now())
+
+    filename String
+
+    hash String
+
+    size Int
+
+    mimeType String
+
+    downloads Int
+
+    deleteAt DateTime
+
+    reports ReportedFile[]
+}
+
+model ReportedFile {
+    reportId String @id
+
+    hash String
+
+    reportedBy String
+
+    reason String
+
+    banned Boolean
+
+    file File @relation(fields: [reportId], references: [id])
+}
