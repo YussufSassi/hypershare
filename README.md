@@ -17,7 +17,7 @@ S3_ACCESS_KEY_ID=<S3 Access Key ID>
 S3_SECRET_ACCESS_KEY=<S3 Access Key>
 ```
 
-### Run dev server
+## Run dev server
 
 `npm run dev`
 
